@@ -52,3 +52,25 @@ class Multilinguist
     json_response['translationText']
   end
 end
+
+class MathGenius < Multilinguist
+
+  def sum(array)
+    sum = 0
+    array.each do |x|
+      sum += x
+    end
+    puts "#{say_in_local_language("The total is")} #{sum}"
+  end
+
+end
+
+
+me = MathGenius.new
+array = [10, 12, 40, 20, 300]
+
+me.sum(array)
+me.travel_to("India")
+me.sum(array)
+me.travel_to("Italy")
+me.sum(array)
