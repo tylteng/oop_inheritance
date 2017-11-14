@@ -65,12 +65,42 @@ class MathGenius < Multilinguist
 
 end
 
+class QuoteCollector < Multilinguist
+
+  def initialize
+    @quotes = []
+  end
+
+  def quotes
+    @quotes
+  end
+
+  def add_quote(quote)
+    @quotes << say_in_local_language(quote)
+  end
+
+  def random_quote
+    counter = 0
+    @quotes.each do |x|
+      counter += 1
+    end
+    puts @quotes[rand(counter)]
+  end
+
+end
 
 me = MathGenius.new
 array = [10, 12, 40, 20, 300]
 
-me.sum(array)
-me.travel_to("India")
-me.sum(array)
-me.travel_to("Italy")
-me.sum(array)
+tyler = QuoteCollector.new
+tyler.add_quote("Hello")
+tyler.travel_to("India")
+tyler.add_quote("Hey")
+tyler.travel_to("Italy")
+tyler.add_quote("Hi")
+tyler.random_quote
+# me.sum(array)
+# me.travel_to("India")
+# me.sum(array)
+# me.travel_to("Italy")
+# me.sum(array)
